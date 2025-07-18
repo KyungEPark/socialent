@@ -41,11 +41,14 @@ def call_csv(file_path):
     return data
 
 # OpenAI calling
-def call_openai(prompt, model="gpt-3.5-turbo",  max_tokens=1000):
+def call_openai(prompt, text, model="gpt-3.5-turbo",  max_tokens=1000):
     import openai
     response = openai.ChatCompletion.create(
         model=model,
-        messages=[{"role": "user", "content": prompt}],
+        messages=[{"role": "user", "content": prompt},
+                  {"role": "assistant", "content": "Ok"},
+                  {"role": "user", "content": text}]
         max_tokens=max_tokens
+        temperature = 0.7
     )
     return response.choices[0].message['content']
