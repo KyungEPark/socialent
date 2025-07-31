@@ -10,6 +10,7 @@ client = OpenAI(
     api_key = os.environ.get("OPENAI_API_KEY"),
 )
 
+
 # Prompt for Hybrid Identity narratives
 hybprompt = "Analysiere den Website-Text daraufhin, ob das soziale Unternehmen sowohl seine soziale Mission als auch seine wirtschaftliche Kompetenz betont. Achte darauf, ob explizit darauf hingewiesen wird, dass soziale Wirkung und unternehmerischer Erfolg gleichermaßen wichtig sind. Suche nach Formulierungen, die auf eine bewusste Verbindung von moralischer Verantwortung und unternehmerischer Professionalität hindeuten. Prüfe, ob sowohl messbare soziale Ziele als auch betriebliche Effizienz oder Wachstum hervorgehoben werden, um verschiedene Anspruchsgruppen anzusprechen."
 transprompt = "Untersuche, ob das Unternehmen auf seiner Website Zertifizierungen (z. B. B Corp), Impact-Reports oder die Einhaltung von Standards wie CSRD hervorhebt. Achte auf Hinweise, dass durch diese Maßnahmen Transparenz geschaffen und Vertrauen aufgebaut werden soll. Suche nach Textstellen, in denen die Veröffentlichung von Berichten, die Teilnahme an Audits oder die Übernahme von regulatorischen Vorgaben betont wird. Prüfe, ob diese Elemente genutzt werden, um die Glaubwürdigkeit und Verantwortlichkeit des Unternehmens nach außen zu demonstrieren."
