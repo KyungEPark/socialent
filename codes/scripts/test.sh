@@ -1,21 +1,22 @@
-#!/bin/bash
-#SBATCH --ntasks=1
-#SBATCH --partition=gpu-single
-#SBATCH --time=00:30:00
-#SBATCH --mem=200gb
-#SBATCH --gres=gpu:A40:1
-#SBATCH --job-name=test_park
-#SBATCH --output /home/ma/ma_ma/ma_kyupark/socialent/logs/slurm-%j.out
+#!/bin/bash -x
+#SBATCH --account=westai0091           # Account details
+#SBATCH --nodes=1                        # Number of compute nodes required
+#SBATCH --ntasks-per-node=1              # Number of tasks per node
+#SBATCH --gres=gpu:1                  
+#SBATCH --time=05:00:00                  # Maximum runtime
+#SBATCH --mem=50gb
+#SBATCH --partition=dc-hwai
+#SBATCH --output /p/project/westai0091/socialent/logs/slurm-%j.out
 
 
 now=$(date +"%T")
 
 echo "Program starts:  $now"
 
-source /home/ma/ma_ma/ma_kyupark/.bashrc
+source /p/project/westai0091/.bashrc
 conda_initialize
-micromamba activate is809
-cd /home/ma/ma_ma/ma_kyupark/socialent
+micromamba activate stat
+cd /p/project/westai0091/socialent
 
 python codes/hfprompting.py --model microsoft/Phi-3-medium-4k-instruct --savefile Phi-3-medium-4k-instruct_reasons.parquet
 

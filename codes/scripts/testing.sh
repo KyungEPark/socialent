@@ -1,12 +1,12 @@
-#!/bin/bash
-#SBATCH --ntasks=1
-#SBATCH --partition=gpu-single
-#SBATCH --time=01:00:00
-#SBATCH --mem=200gb
-#SBATCH --gres=gpu:A40:1
-#SBATCH --job-name=trans_reason
-#SBATCH --output /gpfs/bwfor/work/ws/ma_kyupark-socent/socialent/logs/slurm-%j.out
-
+#!/bin/bash -x
+#SBATCH --account=westai0091           # Account details
+#SBATCH --nodes=1                        # Number of compute nodes required
+#SBATCH --ntasks-per-node=1              # Number of tasks per node
+#SBATCH --gres=gpu:1                  
+#SBATCH --time=05:00:00                  # Maximum runtime
+#SBATCH --mem=50gb
+#SBATCH --partition=dc-hwai
+#SBATCH --output /p/project/westai0091/socialent/logs/slurm-%j.out
 
 now=$(date +"%T")
 
